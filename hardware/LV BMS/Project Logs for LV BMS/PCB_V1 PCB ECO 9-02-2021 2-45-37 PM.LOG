@@ -1,0 +1,52 @@
+Removed Member From Class: ClassName=bq76920 IC Member=D10
+Removed Member From Class: ClassName=bq76920 IC Member=D11
+Removed Member From Class: ClassName=bq76920 IC Member=D12
+Removed Member From Class: ClassName=bq76920 IC Member=R31
+Removed Member From Class: ClassName=bq76920 IC Member=R32
+Removed Member From Class: ClassName=bq76920 IC Member=R33
+Removed Member From Class: ClassName=bq76920 IC Member=R34
+Removed Member From Class: ClassName=MCU Member=U1
+Change Component Designator: OldDesignator=R2 NewDesignator=R3
+Change Component Designator: OldDesignator=R3 NewDesignator=R2
+Change Component Designator: OldDesignator=R5 NewDesignator=R6
+Change Component Designator: OldDesignator=R6 NewDesignator=R5
+Change Component Designator: OldDesignator=R8 NewDesignator=R9
+Change Component Designator: OldDesignator=R9 NewDesignator=R8
+Change Component Designator: OldDesignator=R12 NewDesignator=R13
+Change Component Designator: OldDesignator=R13 NewDesignator=R12
+Added Member To Class: ClassName=bq76920 IC Member=Component D1 150060BS55040
+Added Member To Class: ClassName=bq76920 IC Member=Component D2 MMSZ5232BS-7-F
+Added Member To Class: ClassName=bq76920 IC Member=Component D3 150060BS55040
+Added Member To Class: ClassName=bq76920 IC Member=Component D4 MMSZ5232BS-7-F
+Added Member To Class: ClassName=bq76920 IC Member=Component D5 150060BS55040
+Added Member To Class: ClassName=bq76920 IC Member=Component D6 MMSZ5232BS-7-F
+Added Member To Class: ClassName=bq76920 IC Member=Component D7 150060BS55040
+Added Member To Class: ClassName=bq76920 IC Member=Component D8 MMSZ5232BS-7-F
+Added Member To Class: ClassName=bq76920 IC Member=Component Q1 DMG1012T-13
+Added Member To Class: ClassName=bq76920 IC Member=Component Q3 DMG1012T-13
+Added Member To Class: ClassName=bq76920 IC Member=Component Q6 TK25S06N1L,LXHQ
+Added Member To Class: ClassName=bq76920 IC Member=Component Q8 TK25S06N1L,LXHQ
+Added Member To Class: ClassName=bq76920 IC Member=Component R3 CMP0603AFX-1002ELF
+Added Member To Class: ClassName=bq76920 IC Member=Component R5 CRCW251221R0FKEGHP
+Added Member To Class: ClassName=bq76920 IC Member=Component R6 CRCW06031K00FKEAC
+Added Member To Class: ClassName=bq76920 IC Member=Component R9 CMP0603AFX-1002ELF
+Added Member To Class: ClassName=bq76920 IC Member=Component R10 CRCW251221R0FKEGHP
+Added Member To Class: ClassName=bq76920 IC Member=Component R11 CRCW06031K00FKEAC
+Added Member To Class: ClassName=bq76920 IC Member=Component R13 CMP0603AFX-1002ELF
+Added Member To Class: ClassName=bq76920 IC Member=Component R14 CRCW251221R0FKEGHP
+Added Member To Class: ClassName=bq76920 IC Member=Component R15 CRCW06031K00FKEAC
+Added Member To Class: ClassName=bq76920 IC Member=Component R16 RT0603DRE07583RL
+Added Member To Class: ClassName=bq76920 IC Member=Component R17 CMP0603AFX-1002ELF
+Added Member To Class: ClassName=bq76920 IC Member=Component R19 CRCW06031K00FKEAC
+Added Member To Class: ClassName=bq76920 IC Member=Component R20 CRCW06031M00FKEAC
+Added Member To Class: ClassName=bq76920 IC Member=Component R21 CRCW06031M00FKEAC
+Added Member To Class: ClassName=bq76920 IC Member=Component R22 CRCW06031M00FKEAC
+Added Member To Class: ClassName=bq76920 IC Member=Component R23 CRCW06031M00FKEAC
+Added Member To Class: ClassName=bq76920 IC Member=Component R24 Resistor
+Added Member To Class: ClassName=bq76920 IC Member=Component R25 Resistor
+Added Member To Class: ClassName=bq76920 IC Member=Component R26 Resistor
+Added Member To Class: ClassName=MCU Member=Component R27 CRCW06031K10JNEAC
+Added Member To Class: ClassName=MCU Member=Component R28 CRCW06031K10JNEAC
+Added Member To Class: ClassName=MCU Member=Component R29 CRGP0805F220R
+Added Member To Class: ClassName=MCU Member=Component R30 Resistor
+Added Member To Class: ClassName=MCU Member=Component U2 STM32F103TBU6

@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=VCC Pin=R32-2
+Removed Member From Class: ClassName=MCU Member=R32
+Added Pin To Net: NetName=NetR33_1 Pin=R33-1
+Added Pin To Net: NetName=NetR33_1 Pin=U2-35
+Added Net: Name=NetR33_1
+Added Member To Class: ClassName=bq76920 IC Member=Component R3 CMP0603AFX-1002ELF
+Added Member To Class: ClassName=bq76920 IC Member=Component R5 CRCW251221R0FKEGHP
+Added Member To Class: ClassName=bq76920 IC Member=Component R8 RT0603DRE07583RL
+Added Member To Class: ClassName=bq76920 IC Member=Component R12 RT0603DRE07583RL

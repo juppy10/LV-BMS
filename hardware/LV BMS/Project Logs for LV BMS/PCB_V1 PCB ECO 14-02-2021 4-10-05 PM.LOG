@@ -1,0 +1,4 @@
+Change Component Footprint: Designator=BAT +1 Old Footprint=7460305_for chemical surfaces New Footprint=7460305
+Change Component Footprint: Designator=BAT -1 Old Footprint=7460305_for chemical surfaces New Footprint=7460305
+Change Component Footprint: Designator=Pack +1 Old Footprint=7460305_for chemical surfaces New Footprint=7460305
+Change Component Footprint: Designator=Pack -1 Old Footprint=7460305_for chemical surfaces New Footprint=7460305

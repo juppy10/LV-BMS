@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=NRST Pin=SW2-1
+Removed Pin From Net: NetName=GND Pin=SW2-2
+Removed Pin From Net: NetName=NRST Pin=SW2-3
+Removed Pin From Net: NetName=GND Pin=SW2-4
+Removed Member From Class: ClassName=MCU Member=SW2

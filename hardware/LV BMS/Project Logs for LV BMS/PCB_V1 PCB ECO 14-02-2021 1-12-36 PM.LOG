@@ -1,0 +1,14 @@
+Removed Pin From Net: NetName=VCC Pin=P1-1
+Removed Pin From Net: NetName=SWDIO Pin=P1-2
+Removed Pin From Net: NetName=GND Pin=P1-3
+Removed Pin From Net: NetName=SWCLK Pin=P1-4
+Removed Pin From Net: NetName=NRST Pin=P1-5
+Removed Pin From Net: NetName=SWO Pin=P1-6
+Added Pin To Net: NetName=SWCLK Pin=P1-1
+Added Pin To Net: NetName=SWO Pin=P1-2
+Added Pin To Net: NetName=NRST Pin=P1-3
+Added Pin To Net: NetName=SWDIO Pin=P1-4
+Added Pin To Net: NetName=GND Pin=P1-5
+Added Pin To Net: NetName=VCC Pin=P1-6
+Added Member To Class: ClassName=bq76920 IC Member=Component BAT +1 7460305
+Added Member To Class: ClassName=bq76920 IC Member=Component BAT -1 7460305
