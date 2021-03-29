@@ -1,3 +1,0 @@
-D:/Will/Documents/GitHub/LV-BMS/code/cmake-build-debug/CMakeFiles/code.elf.dir
-D:/Will/Documents/GitHub/LV-BMS/code/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/Will/Documents/GitHub/LV-BMS/code/cmake-build-debug/CMakeFiles/rebuild_cache.dir
