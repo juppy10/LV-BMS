@@ -5,6 +5,7 @@
 #ifndef CODE_REGISTERS_H
 #define CODE_REGISTERS_H
 
+#define BQ_I2CADDRESS   0x08 << 1
 #define SYS_STAT        0x00
 #define CELLBAL1        0x01
 #define SYS_CTRL1       0x04
@@ -33,9 +34,9 @@
 #define CC_HI_BYTE      0x32
 #define CC_LO_BYTE      0x33
 
-#define ADCGAIN1        0x50
-#define ADCOFFSET       0x51
-#define ADCGAIN2        0x59
+#define ADCGAIN1        0x50    //double check this
+#define ADCOFFSET       0x51    //double check this
+#define ADCGAIN2        0x59    //double check this
 
 // for bit clear operations of the SYS_STAT register
 #define STAT_CC_READY           (0x80)

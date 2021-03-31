@@ -1,11 +1,11 @@
-C:\Users\Will\AppData\Local\JetBrains\CLion2020.3\cygwin_cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /cygdrive/d/Will/Documents/GitHub/LV-BMS/code
+C:\Users\Juppy\AppData\Local\JetBrains\CLion2020.3\cygwin_cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=/usr/bin/gcc.exe -G "CodeBlocks - Unix Makefiles" /cygdrive/c/Users/Juppy/Documents/GitHub/LV-BMS/code
 -- The C compiler identification is GNU 10.2.1
 -- The CXX compiler identification is GNU 10.2.1
 -- The ASM compiler identification is GNU
 -- Found assembler: /cygdrive/c/Program Files (x86)/GNU Arm Embedded Toolchain/10 2020-q4-major/bin/arm-none-eabi-gcc.exe
 -- Check for working C compiler: /cygdrive/c/Program Files (x86)/GNU Arm Embedded Toolchain/10 2020-q4-major/bin/arm-none-eabi-gcc.exe
 -- Check for working C compiler: /cygdrive/c/Program Files (x86)/GNU Arm Embedded Toolchain/10 2020-q4-major/bin/arm-none-eabi-gcc.exe - broken
-CMake Error at /cygdrive/c/Users/Will/AppData/Local/JetBrains/CLion2020.3/cygwin_cmake/share/cmake-3.17.5/Modules/CMakeTestCCompiler.cmake:60 (message):
+CMake Error at /cygdrive/c/Users/Juppy/AppData/Local/JetBrains/CLion2020.3/cygwin_cmake/share/cmake-3.17.5/Modules/CMakeTestCCompiler.cmake:60 (message):
   The C compiler
 
     "/cygdrive/c/Program Files (x86)/GNU Arm Embedded Toolchain/10 2020-q4-major/bin/arm-none-eabi-gcc.exe"
@@ -14,18 +14,18 @@ CMake Error at /cygdrive/c/Users/Will/AppData/Local/JetBrains/CLion2020.3/cygwin
 
   It fails with the following output:
 
-    Change Dir: /cygdrive/d/Will/Documents/GitHub/LV-BMS/code/cmake-build-debug/CMakeFiles/CMakeTmp
+    Change Dir: /cygdrive/c/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug/CMakeFiles/CMakeTmp
     
-    Run Build Command(s):/usr/bin/make.exe cmTC_ef3a5/fast && /usr/bin/make  -f CMakeFiles/cmTC_ef3a5.dir/build.make CMakeFiles/cmTC_ef3a5.dir/build
-    make[1]: Entering directory '/cygdrive/d/Will/Documents/GitHub/LV-BMS/code/cmake-build-debug/CMakeFiles/CMakeTmp'
-    Building C object CMakeFiles/cmTC_ef3a5.dir/testCCompiler.c.obj
-    "/cygdrive/c/Program Files (x86)/GNU Arm Embedded Toolchain/10 2020-q4-major/bin/arm-none-eabi-gcc.exe"    -o CMakeFiles/cmTC_ef3a5.dir/testCCompiler.c.obj   -c /cygdrive/d/Will/Documents/GitHub/LV-BMS/code/cmake-build-debug/CMakeFiles/CMakeTmp/testCCompiler.c
-    arm-none-eabi-gcc.exe: error: /cygdrive/d/Will/Documents/GitHub/LV-BMS/code/cmake-build-debug/CMakeFiles/CMakeTmp/testCCompiler.c: No such file or directory
+    Run Build Command(s):/usr/bin/make.exe cmTC_4d6d3/fast && /usr/bin/make  -f CMakeFiles/cmTC_4d6d3.dir/build.make CMakeFiles/cmTC_4d6d3.dir/build
+    make[1]: Entering directory '/cygdrive/c/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug/CMakeFiles/CMakeTmp'
+    Building C object CMakeFiles/cmTC_4d6d3.dir/testCCompiler.c.obj
+    "/cygdrive/c/Program Files (x86)/GNU Arm Embedded Toolchain/10 2020-q4-major/bin/arm-none-eabi-gcc.exe"    -o CMakeFiles/cmTC_4d6d3.dir/testCCompiler.c.obj   -c /cygdrive/c/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug/CMakeFiles/CMakeTmp/testCCompiler.c
+    arm-none-eabi-gcc.exe: error: /cygdrive/c/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug/CMakeFiles/CMakeTmp/testCCompiler.c: No such file or directory
     arm-none-eabi-gcc.exe: fatal error: no input files
     compilation terminated.
-    make[1]: *** [CMakeFiles/cmTC_ef3a5.dir/build.make:86: CMakeFiles/cmTC_ef3a5.dir/testCCompiler.c.obj] Error 1
-    make[1]: Leaving directory '/cygdrive/d/Will/Documents/GitHub/LV-BMS/code/cmake-build-debug/CMakeFiles/CMakeTmp'
-    make: *** [Makefile:141: cmTC_ef3a5/fast] Error 2
+    make[1]: *** [CMakeFiles/cmTC_4d6d3.dir/build.make:86: CMakeFiles/cmTC_4d6d3.dir/testCCompiler.c.obj] Error 1
+    make[1]: Leaving directory '/cygdrive/c/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug/CMakeFiles/CMakeTmp'
+    make: *** [Makefile:141: cmTC_4d6d3/fast] Error 2
     
     
 
@@ -37,5 +37,5 @@ Call Stack (most recent call first):
 
 
 -- Configuring incomplete, errors occurred!
-See also "/cygdrive/d/Will/Documents/GitHub/LV-BMS/code/cmake-build-debug/CMakeFiles/CMakeOutput.log".
-See also "/cygdrive/d/Will/Documents/GitHub/LV-BMS/code/cmake-build-debug/CMakeFiles/CMakeError.log".
+See also "/cygdrive/c/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug/CMakeFiles/CMakeOutput.log".
+See also "/cygdrive/c/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug/CMakeFiles/CMakeError.log".

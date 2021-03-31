@@ -69,7 +69,7 @@ static void MX_I2C1_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+    HAL_StatusTypeDef I2CStat;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -228,7 +228,51 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+void writeRegister(uint_8 address, uint_8 data){
+    uint8_t buf[3];        //is it meant to be uint or char??
+    buf[0] = address
+    buf[1] = data;
 
+    I2CStat = HAL_I2C_Master_Transmit(&hi2c1,BQ_I2CADDRESS,buf,2,HAL_MAX_DELAY);
+    if (I2CStat!=HAL_OK){
+        //Error?
+        //Try again?
+    }
+    //Add CRC later
+}
+uint8_t readRegister(uint_8 address){
+    uint8_t buf[1];
+    buf[0] = address;
+    HAL_I2C_Master_Transmit(&hi2c1,BQ_I2CADDRESS,buf,1,HAL_MAX_DELAY);
+    I2CStat = HAL_I2C_Master_Receive(&hi2c1,BQ_I2CADDRESS,buf,1,HAL_MAX_DELAY);
+    return buf[0];
+}
+long setShortCircuitProtection(long current_mA){
+    //need to check notebook
+}
+
+long setOvercurrentDischargeProtection(long current_mA){
+    //need to check notebook
+}
+
+int setCellUndervoltageProtection(int voltage_mV){
+
+}
+
+uint16_t getBatteryVoltage(void){
+    uint8_t HI_BYTE, LO_BYTE;
+    uint16_t BAT_Volt;
+
+    HI_BYTE = readRegister(BAT_HI_BYTE);
+    LO_BYTE = readRegister(BAT_LO_BYTE);
+
+    BAT_Volt = HI_BYTE << 8 | LO_BYTE;
+    return BAT_Volt;
+}
+
+int setCellOvervoltageProtection(int voltage_mV){
+
+}
 /* USER CODE END 4 */
 
 /**
