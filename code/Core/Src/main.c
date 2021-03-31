@@ -240,7 +240,7 @@ void writeRegister(uint_8 address, uint_8 data){
     }
     //Add CRC later
 }
-uint8_t readRegister(uint_8 address){
+int readRegister(uint_8 address){
     uint8_t buf[1];
     buf[0] = address;
     HAL_I2C_Master_Transmit(&hi2c1,BQ_I2CADDRESS,buf,1,HAL_MAX_DELAY);
@@ -255,7 +255,34 @@ long setOvercurrentDischargeProtection(long current_mA){
     //need to check notebook
 }
 
-int setCellUndervoltageProtection(int voltage_mV){
+int setCellUndervoltageProtection(int voltage_mV, int delay_s){
+    uint8_t ADCGAIN_1, ADCGAIN_2, ADCGAIN_S, UV_trip_mV;
+    int8_t adc_offset;
+    uint8_t protecc3Reg, delay_s_code, protecc3New;
+
+    ADCGAIN_1 = readRegister(ADCGAIN1); //Read adcgain registers
+    ADCGAIN_2 = readRegister(ADCGAIN2);
+    ADCGAIN_S = ((ADCGAIN_1 << 1)|(ADCGAIN_2 >> 5)) & 0x1F; //sets bits 7,6,5 -> 0 preserves all other bits
+
+    adc_offset = (signed int) readRegister(ADCOFFSET);
+
+    UV_trip_mV = ((voltage_mV - adc_offset) * 1000/ADCGAIN_S) & 0x00FF; //need to check
+
+    writeRegister(UV_TRIP, UV_trip_mV);
+
+    protecc3Reg = readRegister(PROTECT3)& 0x3F;
+
+    if(delay_s > 16){
+        delay_s = 16;
+    }
+    delay_s_code = delay_s / 4;
+    delay_s_code = (delay_s_code << 6);
+    protecc3New = delay_s_code | protecc3Reg;
+
+
+}
+
+int setCellOvervoltageProtection(int voltage_mV, int delay_s){
 
 }
 
@@ -270,9 +297,7 @@ uint16_t getBatteryVoltage(void){
     return BAT_Volt;
 }
 
-int setCellOvervoltageProtection(int voltage_mV){
 
-}
 /* USER CODE END 4 */
 
 /**

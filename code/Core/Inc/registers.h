@@ -34,9 +34,9 @@
 #define CC_HI_BYTE      0x32
 #define CC_LO_BYTE      0x33
 
-#define ADCGAIN1        0x50    //double check this
-#define ADCOFFSET       0x51    //double check this
-#define ADCGAIN2        0x59    //double check this
+#define ADCGAIN1        0x50
+#define ADCGAIN2        0x59
+#define ADCOFFSET       0x51
 
 // for bit clear operations of the SYS_STAT register
 #define STAT_CC_READY           (0x80)

@@ -17,8 +17,8 @@
 void setTemperatureLimits(int max_degC);
 long setShortCircuitProtection(long current_mA);
 long setOvercurrentDischargeProtection(long current_mA);
-int setCellUndervoltageProtection(int voltage_mV);
-int setCellOvervoltageProtection(int voltage_mV);
+int setCellUndervoltageProtection(int voltage_mV, int delay_s);
+int setCellOvervoltageProtection(int voltage_mV, int delay_s);
 
 //battery status
 long  getBatteryCurrent(void);
@@ -30,6 +30,6 @@ float getTemperatureDegC(void);
 
 //communication
 void writeRegister(byte address, int data);
-uint8_t readRegister(byte address);
+int readRegister(byte address);
 
 #endif //CODE_FUNCTIONS_H
