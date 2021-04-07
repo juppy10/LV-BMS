@@ -11,8 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a785a6fe-76fe-4874-92e1-398e69375c60" name="Default Changelist" comment="init commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Inc/functions.h" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Inc/functions.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Inc/registers.h" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Inc/registers.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/main.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,6 +21,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -50,9 +49,9 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Lab2" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
   </component>
@@ -69,6 +68,7 @@
       <workItem from="1617023860941" duration="1062000" />
       <workItem from="1617091273622" duration="8518000" />
       <workItem from="1617179543946" duration="4297000" />
+      <workItem from="1617767488753" duration="4017000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <created>1616068584457</created>
