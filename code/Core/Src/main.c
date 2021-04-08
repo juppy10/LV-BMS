@@ -244,11 +244,10 @@ void writeRegister(uint8_t address, uint8_t data){
     //Add CRC later
 }
 int readRegister(uint8_t address){
-    uint8_t buf[1];
+    uint8_t buf = address;
     HAL_StatusTypeDef I2CStat;
 
-    buf[0] = address;
-    HAL_I2C_Master_Transmit(&hi2c1,BQ_I2CADDRESS,buf,1,HAL_MAX_DELAY);
+    HAL_I2C_Master_Transmit(&hi2c1,BQ_I2CADDRESS,&buf,1,HAL_MAX_DELAY);
     I2CStat = HAL_I2C_Master_Receive(&hi2c1,BQ_I2CADDRESS,buf,1,HAL_MAX_DELAY);
     if (I2CStat!=HAL_OK){
         //Error?
@@ -258,18 +257,28 @@ int readRegister(uint8_t address){
 }
 long setShortCircuitProtection(long current_mA){
     //need to check notebook
+    uint8_t PROTECT_1;
+    PROTECT_1 = (uint8_t) readRegister(PROTECT1);
+    PROTECT_1 |= (SHORTCIRCUIT_THRESHOLD << SCD_THRESH);
+    PROTECT_1 |= (SHORTCIRCUIT_DELAY << SCD_DELAY);
+    writeRegister(PROTECT1, PROTECT_1);
 }
 long setOvercurrentDischargeProtection(long current_mA){
     //need to check notebook
+    uint8_t PROTECT_2;
+    PROTECT_2 = (uint8_t) readRegister(PROTECT2);
+    PROTECT_2 |= (OVERCURRENT_THRESHOLD << OCD_THRESH);
+    PROTECT_2 |= (OVERCURRENT_DELAY << OCD_DELAY);
+    writeRegister(PROTECT2, PROTECT_2);
 }
-int setCellUndervoltageProtection(int voltage_mV, int delay_s){
+int setCellUndervoltageProtection(int voltage_mV, int delay_s) {
     uint8_t ADCGAIN_1, ADCGAIN_2, ADCGAIN_S, uv_trip;
     int8_t adc_offset;
     uint8_t protecc3Reg, delay_s_code, protecc3New;
 
     ADCGAIN_1 = readRegister(ADCGAIN1); //Read adcgain registers
     ADCGAIN_2 = readRegister(ADCGAIN2);
-    ADCGAIN_S = ((ADCGAIN_1 << 1)|(ADCGAIN_2 >> 5)) & 0x1F; //sets bits 7,6,5 -> 0 preserves all other bits
+    ADCGAIN_S = (uint8_t) ((ADCGAIN_1 << 1)|(ADCGAIN_2 >> 5)) & 0x1F; //sets bits 7,6,5 -> 0 preserves all other bits
 
     adc_offset = (int8_t) readRegister(ADCOFFSET);
 
@@ -326,15 +335,42 @@ uint16_t getBatteryVoltage(void){
     return BAT_Volt;
 }
 //long  getBatteryCurrent(void){}   //might not need it
-int  getCellVoltage(int idCell){
-    for(int i=0;)
+
+uint8_t getGain() {
+    uint8_t ADCGAIN_1, ADCGAIN_2, ADCGAIN_S;
+    ADCGAIN_1 = readRegister(ADCGAIN1); //Read adcgain registers
+    ADCGAIN_2 = readRegister(ADCGAIN2);
+    ADCGAIN_S = ((ADCGAIN_1 << 1u)|(ADCGAIN_2 >> 5u)) & 0x1F; //sets bits 7,6,5 -> 0 preserves all other bits
+    return ADCGAIN_S;
+
+}
+
+// TAKES ARRAY OF LENGTH "NUMBER_OF_CELLS" AND UPDATES THE VALUES IN THE ARRAY
+int updateCellVoltages(int *voltages) {
+    for (uint8_t i = 0; i < NUMBER_OF_CELLS; i++) {
+        voltages[i] = getCellVoltage(i + 1); // CELL ID STARTS AT 1
+    }
+    return 0;
+}
+
+int  getCellVoltage(int idCell) {
+    // V(cell) = GAIN x ADC(cell) + OFFSET
+    uint8_t v_hi, v_lo;
+    v_hi = (uint8_t) readRegister(CELL_ADDRESS(idCell));
+    v_lo = (uint8_t) readRegister(CELL_ADDRESS(idCell) + 1);
+    long adc = (v_hi & 0b00111111u) << 8 | v_lo;
+    int8_t adc_offset = readRegister(ADCOFFSET);
+    uint8_t gain = getGain();
+    return adc * gain / 1000 + adc_offset;
 }
 int  getMinCellVoltage(void){
 
 }
+
 int  getMaxCellVoltage(void){
 
 }
+
 float getTemperatureDegC(void){
 
 }

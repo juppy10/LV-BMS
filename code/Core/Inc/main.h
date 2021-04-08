@@ -48,6 +48,14 @@ extern "C" {
 /* Exported macro ------------------------------------------------------------*/
 /* USER CODE BEGIN EM */
 
+#define OVERCURRENT_DELAY 0x4u
+#define OVERCURRENT_THRESHOLD 0xFu
+
+#define SHORTCIRCUIT_DELAY 0x1u
+#define SHORTCIRCUIT_THRESHOLD 0x7u
+
+#define NUMBER_OF_CELLS 4
+
 /* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/

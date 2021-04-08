@@ -20,9 +20,12 @@ long setOvercurrentDischargeProtection(long current_mA);
 int setCellUndervoltageProtection(int voltage_mV, int delay_s);
 int setCellOvervoltageProtection(int voltage_mV, int delay_s);
 
+uint8_t getGain();
+
 //battery status
 long  getBatteryCurrent(void);
 uint16_t  getBatteryVoltage(void);
+int  updateCellVoltages();
 int  getCellVoltage(int idCell);
 int  getMinCellVoltage(void);
 int  getMaxCellVoltage(void);

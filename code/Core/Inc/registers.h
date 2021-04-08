@@ -26,6 +26,11 @@
 #define VC4_HI_BYTE     0x12
 #define VC4_LO_BYTE     0x13
 
+// MAPS 1,2,3,4 TO THEIR RESPECTIVE HIGH BYTES REGISTERS
+// LOW BYTE REGISTER IS THE ADDRESS + 1
+#define CELL_ADDRESS(x) (x - 1)*2 + 0x0C
+
+
 #define BAT_HI_BYTE     0x2A
 #define BAT_LO_BYTE     0x2B
 
@@ -48,4 +53,18 @@
 #define STAT_OCD                (0x01)
 #define STAT_FLAGS              (0x3F)
 
+// REGISTER OFFSETS
+#define OCD_DELAY 4u
+#define OCD_THRESH 0u
+#define SCD_DELAY 3u
+#define SCD_THRESH 0u
+
+// FUNCTION DECLARATION
+
+
+int readRegister(uint8_t address)
+void writeRegister(uint8_t address, uint8_t data)
+
+
 #endif //CODE_REGISTERS_H
+
