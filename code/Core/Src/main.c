@@ -19,9 +19,6 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "registers.h"
-#include "bq76930_func.h"
-#include <stdint.h>
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -103,7 +100,6 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-      setTemperatureLimits(20);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

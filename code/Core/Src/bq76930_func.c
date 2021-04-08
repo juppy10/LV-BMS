@@ -3,6 +3,8 @@
 //
 
 
+#include "main.h"
+
 long setShortCircuitProtection(long current_mA){
     //need to check notebook
     uint8_t PROTECT_1;
@@ -22,17 +24,10 @@ long setOvercurrentDischargeProtection(long current_mA){
 }
 
 int setCellUndervoltageProtection(int voltage_mV, int delay_s) {
-    uint8_t ADCGAIN_1, ADCGAIN_2, ADCGAIN_S, uv_trip;
-    int8_t adc_offset;
+    uint8_t uv_trip;
     uint8_t protecc3Reg, delay_s_code, protecc3New;
 
-    ADCGAIN_1 = readRegister(ADCGAIN1); //Read adcgain registers
-    ADCGAIN_2 = readRegister(ADCGAIN2);
-    ADCGAIN_S = (uint8_t) ((ADCGAIN_1 << 1)|(ADCGAIN_2 >> 5)) & 0x1F; //sets bits 7,6,5 -> 0 preserves all other bits
-
-    adc_offset = (int8_t) readRegister(ADCOFFSET);
-
-    uv_trip = (((voltage_mV - adc_offset) * 1000/ADCGAIN_S) >> 4) & 0x00FF; //need to check
+    uv_trip = (((voltage_mV - (int8_t) ADCOFFSET) * 1000/ADCGAIN_S) >> 4) & 0x00FF; //need to check
     uv_trip += 1;
 
     writeRegister(UV_TRIP, uv_trip);
@@ -50,19 +45,13 @@ int setCellUndervoltageProtection(int voltage_mV, int delay_s) {
 }
 
 int setCellOvervoltageProtection(int voltage_mV, int delay_s){
-    uint8_t ADCGAIN_1, ADCGAIN_2, ADCGAIN_S, ov_trip;
-    int8_t adc_offset;
+    uint8_t uv_trip;
     uint8_t protecc3Reg, delay_s_code, protecc3New;
 
-    ADCGAIN_1 = readRegister(ADCGAIN1); //Read adcgain registers
-    ADCGAIN_2 = readRegister(ADCGAIN2);
-    ADCGAIN_S = ((ADCGAIN_1 << 1)|(ADCGAIN_2 >> 5)) & 0x1F; //sets bits 7,6,5 -> 0 preserves all other bits
+    uv_trip = (((voltage_mV - (int8_t) ADCOFFSET) * 1000/ADCGAIN_S) >> 4) & 0x00FF; //need to check
+    uv_trip += 1;
 
-    adc_offset = (int8_t) readRegister(ADCOFFSET);
-
-    ov_trip = (((voltage_mV - adc_offset) * 1000/ADCGAIN_S) >> 4) & 0x00FF; //need to check
-
-    writeRegister(OV_TRIP, ov_trip);
+    writeRegister(UV_TRIP, uv_trip);
 
     protecc3Reg = readRegister(PROTECT3) & 0xCF;    //preserve bits 4 and 5, set OV bits to 0
 
@@ -76,54 +65,87 @@ int setCellOvervoltageProtection(int voltage_mV, int delay_s){
     writeRegister(PROTECT3,protecc3New);    //write to register
 }
 
-uint16_t getBatteryVoltage(void){
-    uint8_t HI_BYTE, LO_BYTE;
-    uint16_t BAT_Volt;
+int getBatteryVoltagemV(){
+    uint16_t BAT_Volt = readRegister_2(BAT_HI_BYTE);
+    int VbatmV = 4*ADCGAIN_S/1000+(NUMBER_OF_CELLS*ADCOFFSET);  //determine battery voltage in mV
 
-    HI_BYTE = readRegister(BAT_HI_BYTE);
-    LO_BYTE = readRegister(BAT_LO_BYTE);
-
-    BAT_Volt = HI_BYTE << 8 | LO_BYTE;
-    return BAT_Volt;
+    return VbatmV;
 }
 
 //long  getBatteryCurrent(void){}   //might not need it
-uint8_t getGain() {
+/*uint8_t getGain() {
     uint8_t ADCGAIN_1, ADCGAIN_2, ADCGAIN_S;
     ADCGAIN_1 = readRegister(ADCGAIN1); //Read adcgain registers
     ADCGAIN_2 = readRegister(ADCGAIN2);
     ADCGAIN_S = ((ADCGAIN_1 << 1u)|(ADCGAIN_2 >> 5u)) & 0x1F; //sets bits 7,6,5 -> 0 preserves all other bits
     return ADCGAIN_S;
 
-}
+}*/
 
 // TAKES ARRAY OF LENGTH "NUMBER_OF_CELLS" AND UPDATES THE VALUES IN THE ARRAY
-int updateCellVoltages(int *voltages) {
+int updateCellVoltages(int *voltages_mV) {
+    // V(cell) = GAIN x ADC(cell) + OFFSET
     for (uint8_t i = 0; i < NUMBER_OF_CELLS; i++) {
-        voltages[i] = getCellVoltage(i + 1); // CELL ID STARTS AT 1
+        voltages_mV[i] = getCellVoltage_mV(i + 1) * ADCGAIN_S / 1000 + ADCOFFSET; // CELL ID STARTS AT 1
     }
     return 0;
 }
 
-int  getCellVoltage(int idCell) {
-    // V(cell) = GAIN x ADC(cell) + OFFSET
+int getCellVoltage_mV(int idCell) {
     uint8_t v_hi, v_lo;
     v_hi = (uint8_t) readRegister(CELL_ADDRESS(idCell));
     v_lo = (uint8_t) readRegister(CELL_ADDRESS(idCell) + 1);
-    long adc = (v_hi & 0b00111111u) << 8 | v_lo;
-    int8_t adc_offset = readRegister(ADCOFFSET);
-    uint8_t gain = getGain();
-    return adc * gain / 1000 + adc_offset;
+    int adc = (v_hi & 0b00111111u) << 8 | v_lo;
+    return adc;
 }
 
-int  getMinCellVoltage(void){
+int getMinCellVoltage(void){
+    int voltages[4];
+    int minCellVoltage_cell=1;
+    updateCellVoltages((int *) &voltages);
 
+    for(int i=1; i>NUMBER_OF_CELLS; i++){
+        if(voltages[i]<voltages[i-1]){
+            minCellVoltage_cell=i;
+        }
+    }
+    return minCellVoltage_cell;
 }
 
-int  getMaxCellVoltage(void){
+int getMaxCellVoltage(void){
+    int voltages[4];
+    int maxCellVoltage_cell=1;
+    updateCellVoltages((int *) &voltages);
 
+    for(int i=1; i>NUMBER_OF_CELLS; i++){
+        if(voltages[i]>voltages[i-1]){
+            maxCellVoltage_cell=i;
+        }
+    }
+    return maxCellVoltage_cell;
 }
 
-float getTemperatureDegC(void){
+float getTemperatureDegC(int isThermistor){
+    int Rts, Temp , ADCTemp = readRegister_2(TS1_HI_BYTE);
+    ADCTemp *= 382/1000000;
+
+    if(isThermistor){
+        Rts = (10000*ADCTemp)/(3.3-ADCTemp);
+        Temp = NTCBeta/log(Rts/(10000*pow(M_E,-NTCBeta/25))); //convert resistance to temp using formula for beta - NEED TO CHECK
+    }else{
+        Temp = 25-((ADCTemp-1.2)/0.0042);       //if measuring the die temp, this is the formula for the temperature
+    }
+    return Temp;
+}
+
+void updateCC(void){
+    //assume that the CC_Ready bit has been detected high
+    int CCmA, EnergyCCmJ, currBatVoltagemV = getBatteryVoltagemV();   //battery voltage
+    int16_t currCCReg = readRegister_2(CC_HI_BYTE);   //current
+    CCmA=currCCReg*8.44/shunt_mOhm;    //value in mA (8.44 from datasheet)
+    if(abs(CCmA)<10){
+        CCmA=0;
+    }
+    //EnergyCCmJ=CCmA*currBatVoltagemV/1000*deltaT_ms/1000;  //energy since last CC reading
 
 }

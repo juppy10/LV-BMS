@@ -142,6 +142,33 @@ code.elf/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.elf.dir\build.make CMakeFiles/code.elf.dir/build
 .PHONY : code.elf/fast
 
+Core/Src/bq76930_func.obj: Core/Src/bq76930_func.c.obj
+
+.PHONY : Core/Src/bq76930_func.obj
+
+# target to build an object file
+Core/Src/bq76930_func.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.elf.dir\build.make CMakeFiles/code.elf.dir/Core/Src/bq76930_func.c.obj
+.PHONY : Core/Src/bq76930_func.c.obj
+
+Core/Src/bq76930_func.i: Core/Src/bq76930_func.c.i
+
+.PHONY : Core/Src/bq76930_func.i
+
+# target to preprocess a source file
+Core/Src/bq76930_func.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.elf.dir\build.make CMakeFiles/code.elf.dir/Core/Src/bq76930_func.c.i
+.PHONY : Core/Src/bq76930_func.c.i
+
+Core/Src/bq76930_func.s: Core/Src/bq76930_func.c.s
+
+.PHONY : Core/Src/bq76930_func.s
+
+# target to generate assembly for a file
+Core/Src/bq76930_func.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.elf.dir\build.make CMakeFiles/code.elf.dir/Core/Src/bq76930_func.c.s
+.PHONY : Core/Src/bq76930_func.c.s
+
 Core/Src/main.obj: Core/Src/main.c.obj
 
 .PHONY : Core/Src/main.obj
@@ -168,6 +195,33 @@ Core/Src/main.s: Core/Src/main.c.s
 Core/Src/main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.elf.dir\build.make CMakeFiles/code.elf.dir/Core/Src/main.c.s
 .PHONY : Core/Src/main.c.s
+
+Core/Src/registers.obj: Core/Src/registers.c.obj
+
+.PHONY : Core/Src/registers.obj
+
+# target to build an object file
+Core/Src/registers.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.elf.dir\build.make CMakeFiles/code.elf.dir/Core/Src/registers.c.obj
+.PHONY : Core/Src/registers.c.obj
+
+Core/Src/registers.i: Core/Src/registers.c.i
+
+.PHONY : Core/Src/registers.i
+
+# target to preprocess a source file
+Core/Src/registers.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.elf.dir\build.make CMakeFiles/code.elf.dir/Core/Src/registers.c.i
+.PHONY : Core/Src/registers.c.i
+
+Core/Src/registers.s: Core/Src/registers.c.s
+
+.PHONY : Core/Src/registers.s
+
+# target to generate assembly for a file
+Core/Src/registers.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.elf.dir\build.make CMakeFiles/code.elf.dir/Core/Src/registers.c.s
+.PHONY : Core/Src/registers.c.s
 
 Core/Src/stm32f1xx_hal_msp.obj: Core/Src/stm32f1xx_hal_msp.c.obj
 
@@ -727,9 +781,15 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... code.elf
+	@echo ... Core/Src/bq76930_func.obj
+	@echo ... Core/Src/bq76930_func.i
+	@echo ... Core/Src/bq76930_func.s
 	@echo ... Core/Src/main.obj
 	@echo ... Core/Src/main.i
 	@echo ... Core/Src/main.s
+	@echo ... Core/Src/registers.obj
+	@echo ... Core/Src/registers.i
+	@echo ... Core/Src/registers.s
 	@echo ... Core/Src/stm32f1xx_hal_msp.obj
 	@echo ... Core/Src/stm32f1xx_hal_msp.i
 	@echo ... Core/Src/stm32f1xx_hal_msp.s

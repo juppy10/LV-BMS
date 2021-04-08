@@ -39,9 +39,10 @@
 #define CC_HI_BYTE      0x32
 #define CC_LO_BYTE      0x33
 
-#define ADCGAIN1        0x50
-#define ADCGAIN2        0x59
-#define ADCOFFSET       0x51
+#define ADCGAIN1        0x50    //0b0101 0000
+#define ADCGAIN2        0x59    //0b0101 1001
+#define ADCGAIN_S       0x69    //Set this before prog.
+#define ADCOFFSET       0x51    //0b0101 0001
 
 // for bit clear operations of the SYS_STAT register
 #define STAT_CC_READY           (0x80)
@@ -62,9 +63,9 @@
 // FUNCTION DECLARATION
 
 
-int readRegister(uint8_t address)
-void writeRegister(uint8_t address, uint8_t data)
-
+int readRegister(uint8_t address);
+void writeRegister(uint8_t address, uint8_t data);
+int readRegister_2(uint8_t address);
 
 #endif //CODE_REGISTERS_H
 
