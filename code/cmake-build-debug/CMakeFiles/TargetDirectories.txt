@@ -1,0 +1,3 @@
+C:/Users/bbark/OneDrive/Stuff/Documents/other/motor_sport/LV-BMS/code/cmake-build-debug/CMakeFiles/code.elf.dir
+C:/Users/bbark/OneDrive/Stuff/Documents/other/motor_sport/LV-BMS/code/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/bbark/OneDrive/Stuff/Documents/other/motor_sport/LV-BMS/code/cmake-build-debug/CMakeFiles/rebuild_cache.dir
