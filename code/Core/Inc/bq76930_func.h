@@ -1,9 +1,9 @@
 //
-// Created by Will on 29/03/2021.
+// Created by yaboi on 8/04/2021.
 //
 
-#ifndef CODE_FUNCTIONS_H
-#define CODE_FUNCTIONS_H
+#ifndef CODE_BQ76930_FUNC_H
+#define CODE_BQ76930_FUNC_H
 
 #define shunt_mOhm 4
 #define max_temp_degC 60
@@ -31,8 +31,5 @@ int  getMinCellVoltage(void);
 int  getMaxCellVoltage(void);
 float getTemperatureDegC(void);
 
-//communication
-void writeRegister(byte address, int data);
-int readRegister(byte address);
 
-#endif //CODE_FUNCTIONS_H
+#endif //CODE_BQ76930_FUNC_H

@@ -16,6 +16,7 @@ void writeRegister(uint8_t address, uint8_t data){
     }
     //Add CRC later
 }
+
 int readRegister(uint8_t address){
     uint8_t buf[1];
     HAL_StatusTypeDef I2CStat;
