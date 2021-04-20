@@ -11,7 +11,11 @@
   <component name="ChangeListManager">
     <list default="true" id="a785a6fe-76fe-4874-92e1-398e69375c60" name="Default Changelist" comment="init commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hardware/LV BMS/History/MCU.~(106).SchDoc.Zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hardware/LV BMS/History/PCB_V1.~(161).PcbDoc.Zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hardware/LV BMS/MCU.SchDoc" beforeDir="false" afterPath="$PROJECT_DIR$/../hardware/LV BMS/MCU.SchDoc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hardware/LV BMS/PCB_V1.PcbDoc" beforeDir="false" afterPath="$PROJECT_DIR$/../hardware/LV BMS/PCB_V1.PcbDoc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hardware/LV BMS/__Previews/MCU.SchDocPreview" beforeDir="false" afterPath="$PROJECT_DIR$/../hardware/LV BMS/__Previews/MCU.SchDocPreview" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,13 +52,6 @@
     <property name="cf.first.check.clang-format" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Lab2" />
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -69,6 +66,8 @@
       <workItem from="1617091273622" duration="8518000" />
       <workItem from="1617179543946" duration="4297000" />
       <workItem from="1617767488753" duration="4017000" />
+      <workItem from="1618192077941" duration="623000" />
+      <workItem from="1618194117854" duration="531000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <created>1616068584457</created>
