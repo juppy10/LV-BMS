@@ -29,10 +29,13 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f1xx_hal.h"
-
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "bq76930_func.h"
+#include "registers.h"
+#include <stdint.h>
+#include <stdlib.h>
+#include <math.h>
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -47,6 +50,14 @@ extern "C" {
 
 /* Exported macro ------------------------------------------------------------*/
 /* USER CODE BEGIN EM */
+
+#define OVERCURRENT_DELAY 0x4u
+#define OVERCURRENT_THRESHOLD 0xFu
+
+#define SHORTCIRCUIT_DELAY 0x1u
+#define SHORTCIRCUIT_THRESHOLD 0x7u
+
+#define NUMBER_OF_CELLS 4
 
 /* USER CODE END EM */
 

@@ -1,5 +1,5 @@
 Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
-Compiler: /cygdrive/c/Program Files (x86)/GNU Arm Embedded Toolchain/10 2020-q4-major/bin/arm-none-eabi-gcc.exe 
+Compiler: C:/Program Files (x86)/GNU Arm Embedded Toolchain/10 2020-q4-major/bin/arm-none-eabi-gcc.exe 
 Build flags: 
 Id flags:  
 
@@ -11,7 +11,7 @@ collect2.exe: error: ld returned 1 exit status
 
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
-Compiler: /cygdrive/c/Program Files (x86)/GNU Arm Embedded Toolchain/10 2020-q4-major/bin/arm-none-eabi-g++.exe 
+Compiler: C:/Program Files (x86)/GNU Arm Embedded Toolchain/10 2020-q4-major/bin/arm-none-eabi-g++.exe 
 Build flags: 
 Id flags:  
 
@@ -20,21 +20,5 @@ The output was:
 c:/program files (x86)/gnu arm embedded toolchain/10 2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/../../../../arm-none-eabi/bin/ld.exe: c:/program files (x86)/gnu arm embedded toolchain/10 2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/../../../../arm-none-eabi/lib\libc.a(lib_a-exit.o): in function `exit':
 exit.c:(.text.exit+0x2c): undefined reference to `_exit'
 collect2.exe: error: ld returned 1 exit status
-
-
-Determining if the C compiler works failed with the following output:
-Change Dir: /cygdrive/c/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make.exe cmTC_4d6d3/fast && /usr/bin/make  -f CMakeFiles/cmTC_4d6d3.dir/build.make CMakeFiles/cmTC_4d6d3.dir/build
-make[1]: Entering directory '/cygdrive/c/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_4d6d3.dir/testCCompiler.c.obj
-"/cygdrive/c/Program Files (x86)/GNU Arm Embedded Toolchain/10 2020-q4-major/bin/arm-none-eabi-gcc.exe"    -o CMakeFiles/cmTC_4d6d3.dir/testCCompiler.c.obj   -c /cygdrive/c/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug/CMakeFiles/CMakeTmp/testCCompiler.c
-arm-none-eabi-gcc.exe: error: /cygdrive/c/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug/CMakeFiles/CMakeTmp/testCCompiler.c: No such file or directory
-arm-none-eabi-gcc.exe: fatal error: no input files
-compilation terminated.
-make[1]: *** [CMakeFiles/cmTC_4d6d3.dir/build.make:86: CMakeFiles/cmTC_4d6d3.dir/testCCompiler.c.obj] Error 1
-make[1]: Leaving directory '/cygdrive/c/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug/CMakeFiles/CMakeTmp'
-make: *** [Makefile:141: cmTC_4d6d3/fast] Error 2
-
 
 

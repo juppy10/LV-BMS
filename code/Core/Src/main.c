@@ -19,9 +19,6 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "registers.h"
-#include "functions.h"
-#include <stdint.h>
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -231,113 +228,7 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-void writeRegister(uint8_t address, uint8_t data){
-    uint8_t buf[3];        //is it meant to be uint or char??
-    HAL_StatusTypeDef I2CStat;
-    buf[0] = address; buf[1] = data;
 
-    I2CStat = HAL_I2C_Master_Transmit(&hi2c1,BQ_I2CADDRESS,buf,2,HAL_MAX_DELAY);
-    if (I2CStat!=HAL_OK){
-        //Error?
-        //Try again?
-    }
-    //Add CRC later
-}
-int readRegister(uint8_t address){
-    uint8_t buf[1];
-    HAL_StatusTypeDef I2CStat;
-
-    buf[0] = address;
-    HAL_I2C_Master_Transmit(&hi2c1,BQ_I2CADDRESS,buf,1,HAL_MAX_DELAY);
-    I2CStat = HAL_I2C_Master_Receive(&hi2c1,BQ_I2CADDRESS,buf,1,HAL_MAX_DELAY);
-    if (I2CStat!=HAL_OK){
-        //Error?
-        //Try again?
-    }
-    return buf[0];
-}
-long setShortCircuitProtection(long current_mA){
-    //need to check notebook
-}
-long setOvercurrentDischargeProtection(long current_mA){
-    //need to check notebook
-}
-int setCellUndervoltageProtection(int voltage_mV, int delay_s){
-    uint8_t ADCGAIN_1, ADCGAIN_2, ADCGAIN_S, uv_trip;
-    int8_t adc_offset;
-    uint8_t protecc3Reg, delay_s_code, protecc3New;
-
-    ADCGAIN_1 = readRegister(ADCGAIN1); //Read adcgain registers
-    ADCGAIN_2 = readRegister(ADCGAIN2);
-    ADCGAIN_S = ((ADCGAIN_1 << 1)|(ADCGAIN_2 >> 5)) & 0x1F; //sets bits 7,6,5 -> 0 preserves all other bits
-
-    adc_offset = (int8_t) readRegister(ADCOFFSET);
-
-    uv_trip = (((voltage_mV - adc_offset) * 1000/ADCGAIN_S) >> 4) & 0x00FF; //need to check
-    uv_trip += 1;
-
-    writeRegister(UV_TRIP, uv_trip);
-
-    protecc3Reg = readRegister(PROTECT3) & 0x3F;    //preserve first 6 LSB, set UV bits to 0
-
-    if(delay_s > 16){
-        delay_s = 16;
-    }//if the delay is greater than 16, change it to 16
-    delay_s_code = delay_s / 4;     //quotient with 4
-    delay_s_code = (delay_s_code << 6);     //left shift by 6 (to make the 2LSB bits 6 and 7)
-    protecc3New = delay_s_code | protecc3Reg;   //or with existing register
-
-    writeRegister(PROTECT3,protecc3New);    //write to register
-}
-int setCellOvervoltageProtection(int voltage_mV, int delay_s){
-    uint8_t ADCGAIN_1, ADCGAIN_2, ADCGAIN_S, ov_trip;
-    int8_t adc_offset;
-    uint8_t protecc3Reg, delay_s_code, protecc3New;
-
-    ADCGAIN_1 = readRegister(ADCGAIN1); //Read adcgain registers
-    ADCGAIN_2 = readRegister(ADCGAIN2);
-    ADCGAIN_S = ((ADCGAIN_1 << 1)|(ADCGAIN_2 >> 5)) & 0x1F; //sets bits 7,6,5 -> 0 preserves all other bits
-
-    adc_offset = (int8_t) readRegister(ADCOFFSET);
-
-    ov_trip = (((voltage_mV - adc_offset) * 1000/ADCGAIN_S) >> 4) & 0x00FF; //need to check
-
-    writeRegister(OV_TRIP, ov_trip);
-
-    protecc3Reg = readRegister(PROTECT3) & 0xCF;    //preserve bits 4 and 5, set OV bits to 0
-
-    if(delay_s > 16){
-        delay_s = 16;
-    }//if the delay is greater than 16, change it to 16
-    delay_s_code = delay_s / 4;     //quotient with 4
-    delay_s_code = (delay_s_code << 4);     //left shift by 6 (to make the 2LSB bits 7 and 8)
-    protecc3New = delay_s_code | protecc3Reg;   //or with existing register
-
-    writeRegister(PROTECT3,protecc3New);    //write to register
-}
-uint16_t getBatteryVoltage(void){
-    uint8_t HI_BYTE, LO_BYTE;
-    uint16_t BAT_Volt;
-
-    HI_BYTE = readRegister(BAT_HI_BYTE);
-    LO_BYTE = readRegister(BAT_LO_BYTE);
-
-    BAT_Volt = HI_BYTE << 8 | LO_BYTE;
-    return BAT_Volt;
-}
-//long  getBatteryCurrent(void){}   //might not need it
-int  getCellVoltage(int idCell){
-    for(int i=0;)
-}
-int  getMinCellVoltage(void){
-
-}
-int  getMaxCellVoltage(void){
-
-}
-float getTemperatureDegC(void){
-
-}
 
 /* USER CODE END 4 */
 

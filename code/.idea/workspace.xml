@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
-    <generated />
+    <generated>
+      <config projectName="code" targetName="code.elf" />
+    </generated>
   </component>
   <component name="CMakeSettings">
     <configurations>
@@ -9,14 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a785a6fe-76fe-4874-92e1-398e69375c60" name="Default Changelist" comment="init commit">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hardware/LV BMS/History/MCU.~(106).SchDoc.Zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hardware/LV BMS/History/PCB_V1.~(161).PcbDoc.Zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hardware/LV BMS/MCU.SchDoc" beforeDir="false" afterPath="$PROJECT_DIR$/../hardware/LV BMS/MCU.SchDoc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hardware/LV BMS/PCB_V1.PcbDoc" beforeDir="false" afterPath="$PROJECT_DIR$/../hardware/LV BMS/PCB_V1.PcbDoc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hardware/LV BMS/__Previews/MCU.SchDocPreview" beforeDir="false" afterPath="$PROJECT_DIR$/../hardware/LV BMS/__Previews/MCU.SchDocPreview" afterDir="false" />
-    </list>
+    <list default="true" id="a785a6fe-76fe-4874-92e1-398e69375c60" name="Default Changelist" comment="added stuff" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,6 +46,23 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Lab2" />
+    <property name="settings.editor.selected.configurable" value="CPPToolchains" />
+  </component>
+  <component name="RunManager" selected="OpenOCD Download &amp; Run.OCD code">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="code.elf" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="code" TARGET_NAME="code.elf" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="code" RUN_TARGET_NAME="code.elf">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="CMake Application.code.elf" />
+      <item itemvalue="OpenOCD Download &amp; Run.OCD code" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -66,8 +78,9 @@
       <workItem from="1617091273622" duration="8518000" />
       <workItem from="1617179543946" duration="4297000" />
       <workItem from="1617767488753" duration="4017000" />
-      <workItem from="1618192077941" duration="623000" />
-      <workItem from="1618194117854" duration="531000" />
+      <workItem from="1617795433697" duration="229000" />
+      <workItem from="1617865572645" duration="9461000" />
+      <workItem from="1617875876554" duration="2485000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <created>1616068584457</created>
@@ -76,7 +89,21 @@
       <option name="project" value="LOCAL" />
       <updated>1616068584457</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added bq76930_func (moved functions from main into this) and removed functions header file">
+      <created>1617867960055</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1617867960055</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added stuff">
+      <created>1617878353139</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1617878353139</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -96,6 +123,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="init commit" />
+    <MESSAGE value="Added bq76930_func (moved functions from main into this) and removed functions header file" />
+    <MESSAGE value="added stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="added stuff" />
   </component>
 </project>
