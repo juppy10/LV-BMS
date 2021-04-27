@@ -5,6 +5,14 @@
 
 #include "main.h"
 
+struct LVBat{
+    double voltage_mV;
+    double packEnergy_mJ;
+    double packMaxEnergy_mJ;
+    int SOC;
+    int SOH;
+} LVBatLiPo;
+
 long setShortCircuitProtection(long current_mA){
     //need to check notebook
     uint8_t PROTECT_1;
@@ -68,7 +76,7 @@ int setCellOvervoltageProtection(int voltage_mV, int delay_s){
 int getBatteryVoltagemV(){
     uint16_t BAT_Volt = readRegister_2(BAT_HI_BYTE);
     int VbatmV = 4*ADCGAIN_S/1000+(NUMBER_OF_CELLS*ADCOFFSET);  //determine battery voltage in mV
-
+    LVBatLiPo.voltage_mV = VbatmV;  //update struct
     return VbatmV;
 }
 
@@ -145,7 +153,9 @@ void updateCC(void){
     CCmA=currCCReg*8.44/shunt_mOhm;    //value in mA (8.44 from datasheet)
     if(abs(CCmA)<10){
         CCmA=0;
+    }else{
+        EnergyCCmJ=CCmA*currBatVoltagemV/1000*deltaT_ms/1000;  //energy since last CC reading       CHECK THIS AGAIN
+        LVBatLiPo.packEnergy_mJ += EnergyCCmJ;
+        LVBatLiPo.SOC = (LVBatLiPo.packEnergy_mJ/LVBatLiPo.packMaxEnergy_mJ)*100;
     }
-    //EnergyCCmJ=CCmA*currBatVoltagemV/1000*deltaT_ms/1000;  //energy since last CC reading
-
 }

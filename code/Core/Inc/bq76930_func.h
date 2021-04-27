@@ -13,7 +13,7 @@
 #define UV_limit_mV 3000
 #define OV_limit_mV 4200
 #define BALANCE_THRES_mV 20 //20mV
-#define NTCBeta 3970
+#define NTCBeta 3970    //thermistor beta value
 
 //battery protection limit settings
 void setTemperatureLimits(int max_degC);

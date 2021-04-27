@@ -33,6 +33,7 @@ extern "C" {
 /* USER CODE BEGIN Includes */
 #include "bq76930_func.h"
 #include "registers.h"
+#include "CAN_comms.h"
 #include <stdint.h>
 #include <stdlib.h>
 #include <math.h>

@@ -142,6 +142,33 @@ code.elf/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.elf.dir\build.make CMakeFiles/code.elf.dir/build
 .PHONY : code.elf/fast
 
+Core/Src/CAN_comms.obj: Core/Src/CAN_comms.c.obj
+
+.PHONY : Core/Src/CAN_comms.obj
+
+# target to build an object file
+Core/Src/CAN_comms.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.elf.dir\build.make CMakeFiles/code.elf.dir/Core/Src/CAN_comms.c.obj
+.PHONY : Core/Src/CAN_comms.c.obj
+
+Core/Src/CAN_comms.i: Core/Src/CAN_comms.c.i
+
+.PHONY : Core/Src/CAN_comms.i
+
+# target to preprocess a source file
+Core/Src/CAN_comms.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.elf.dir\build.make CMakeFiles/code.elf.dir/Core/Src/CAN_comms.c.i
+.PHONY : Core/Src/CAN_comms.c.i
+
+Core/Src/CAN_comms.s: Core/Src/CAN_comms.c.s
+
+.PHONY : Core/Src/CAN_comms.s
+
+# target to generate assembly for a file
+Core/Src/CAN_comms.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\code.elf.dir\build.make CMakeFiles/code.elf.dir/Core/Src/CAN_comms.c.s
+.PHONY : Core/Src/CAN_comms.c.s
+
 Core/Src/bq76930_func.obj: Core/Src/bq76930_func.c.obj
 
 .PHONY : Core/Src/bq76930_func.obj
@@ -781,6 +808,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... code.elf
+	@echo ... Core/Src/CAN_comms.obj
+	@echo ... Core/Src/CAN_comms.i
+	@echo ... Core/Src/CAN_comms.s
 	@echo ... Core/Src/bq76930_func.obj
 	@echo ... Core/Src/bq76930_func.i
 	@echo ... Core/Src/bq76930_func.s

@@ -96,6 +96,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Core/Inc/CAN_comms.h">
+			<Option target="code.elf"/>
+		</Unit>
 		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Core/Inc/bq76930_func.h">
 			<Option target="code.elf"/>
 		</Unit>
@@ -109,6 +112,9 @@
 			<Option target="code.elf"/>
 		</Unit>
 		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Core/Inc/stm32f1xx_it.h">
+			<Option target="code.elf"/>
+		</Unit>
+		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Core/Src/CAN_comms.c">
 			<Option target="code.elf"/>
 		</Unit>
 		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Core/Src/bq76930_func.c">
