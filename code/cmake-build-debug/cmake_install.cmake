@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Juppy/Documents/GitHub/LV-BMS/code
+# Install script for directory: D:/Will/Documents/GitHub/LV-BMS/code
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/Will/Documents/GitHub/LV-BMS/code/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
