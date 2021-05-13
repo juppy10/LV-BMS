@@ -8,18 +8,18 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="D:/Will/Documents/GitHub/LV-BMS/code/cmake-build-debug"/>
+				<Option working_dir="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="D:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;D:/Will/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="D:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;D:/Will/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;D:/Will/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;D:/Will/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="code.elf">
-				<Option output="D:/Will/Documents/GitHub/LV-BMS/code/cmake-build-debug/code.elf" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="D:/Will/Documents/GitHub/LV-BMS/code/cmake-build-debug"/>
+				<Option output="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug/code.elf" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -27,11 +27,11 @@
 					<Add option="-DUSE_HAL_DRIVER"/>
 					<Add option="-DSTM32F103xB"/>
 					<Add option="-DDEBUG"/>
-					<Add directory="D:/Will/Documents/GitHub/LV-BMS/code/Core/Inc"/>
-					<Add directory="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc"/>
-					<Add directory="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy"/>
-					<Add directory="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Device/ST/STM32F1xx/Include"/>
-					<Add directory="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include"/>
+					<Add directory="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Core/Inc"/>
+					<Add directory="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc"/>
+					<Add directory="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy"/>
+					<Add directory="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Device/ST/STM32F1xx/Include"/>
+					<Add directory="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include"/>
 					<Add directory="c:\program files (x86)\gnu arm embedded toolchain\10 2020-q4-major\bin\../lib/gcc/arm-none-eabi/10.2.1/../../../../arm-none-eabi/include/c++/10.2.1"/>
 					<Add directory="c:\program files (x86)\gnu arm embedded toolchain\10 2020-q4-major\bin\../lib/gcc/arm-none-eabi/10.2.1/../../../../arm-none-eabi/include/c++/10.2.1/arm-none-eabi"/>
 					<Add directory="c:\program files (x86)\gnu arm embedded toolchain\10 2020-q4-major\bin\../lib/gcc/arm-none-eabi/10.2.1/../../../../arm-none-eabi/include/c++/10.2.1/backward"/>
@@ -40,15 +40,15 @@
 					<Add directory="c:\program files (x86)\gnu arm embedded toolchain\10 2020-q4-major\bin\../lib/gcc/arm-none-eabi/10.2.1/../../../../arm-none-eabi/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="D:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;D:/Will/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 code.elf"/>
-					<CompileFile command="D:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;D:/Will/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;D:/Will/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;D:/Will/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 code.elf"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="code.elf/fast">
-				<Option output="D:/Will/Documents/GitHub/LV-BMS/code/cmake-build-debug/code.elf" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="D:/Will/Documents/GitHub/LV-BMS/code/cmake-build-debug"/>
+				<Option output="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug/code.elf" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -56,11 +56,11 @@
 					<Add option="-DUSE_HAL_DRIVER"/>
 					<Add option="-DSTM32F103xB"/>
 					<Add option="-DDEBUG"/>
-					<Add directory="D:/Will/Documents/GitHub/LV-BMS/code/Core/Inc"/>
-					<Add directory="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc"/>
-					<Add directory="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy"/>
-					<Add directory="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Device/ST/STM32F1xx/Include"/>
-					<Add directory="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include"/>
+					<Add directory="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Core/Inc"/>
+					<Add directory="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc"/>
+					<Add directory="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy"/>
+					<Add directory="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Device/ST/STM32F1xx/Include"/>
+					<Add directory="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include"/>
 					<Add directory="c:\program files (x86)\gnu arm embedded toolchain\10 2020-q4-major\bin\../lib/gcc/arm-none-eabi/10.2.1/../../../../arm-none-eabi/include/c++/10.2.1"/>
 					<Add directory="c:\program files (x86)\gnu arm embedded toolchain\10 2020-q4-major\bin\../lib/gcc/arm-none-eabi/10.2.1/../../../../arm-none-eabi/include/c++/10.2.1/arm-none-eabi"/>
 					<Add directory="c:\program files (x86)\gnu arm embedded toolchain\10 2020-q4-major\bin\../lib/gcc/arm-none-eabi/10.2.1/../../../../arm-none-eabi/include/c++/10.2.1/backward"/>
@@ -69,256 +69,256 @@
 					<Add directory="c:\program files (x86)\gnu arm embedded toolchain\10 2020-q4-major\bin\../lib/gcc/arm-none-eabi/10.2.1/../../../../arm-none-eabi/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="D:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;D:/Will/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 code.elf/fast"/>
-					<CompileFile command="D:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;D:/Will/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;D:/Will/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;D:/Will/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 code.elf/fast"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="D:/Will/Documents/GitHub/LV-BMS/code/cmake-build-debug"/>
+				<Option working_dir="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="D:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;D:/Will/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="D:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;D:/Will/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;D:/Will/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;D:/Will/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="D:/Will/Documents/GitHub/LV-BMS/code/cmake-build-debug"/>
+				<Option working_dir="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="D:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;D:/Will/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="D:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;D:/Will/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;D:/Will/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;D:/Will/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Juppy/Documents/GitHub/LV-BMS/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Core/Inc/CAN_comms.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Core/Inc/CAN_comms.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Core/Inc/bq76930_func.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Core/Inc/bq76930_func.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Core/Inc/main.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Core/Inc/main.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Core/Inc/registers.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Core/Inc/registers.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Core/Inc/stm32f1xx_hal_conf.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Core/Inc/stm32f1xx_hal_conf.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Core/Inc/stm32f1xx_it.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Core/Inc/stm32f1xx_it.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Core/Src/CAN_comms.c">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Core/Src/CAN_comms.c">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Core/Src/bq76930_func.c">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Core/Src/bq76930_func.c">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Core/Src/main.c">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Core/Src/main.c">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Core/Src/registers.c">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Core/Src/registers.c">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Core/Src/stm32f1xx_hal_msp.c">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Core/Src/stm32f1xx_hal_msp.c">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Core/Src/stm32f1xx_it.c">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Core/Src/stm32f1xx_it.c">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Core/Src/syscalls.c">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Core/Src/syscalls.c">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Core/Src/sysmem.c">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Core/Src/sysmem.c">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Core/Src/system_stm32f1xx.c">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Core/Src/system_stm32f1xx.c">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Core/Startup/startup_stm32f103tbux.s">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Core/Startup/startup_stm32f103tbux.s">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/cmsis_armcc.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/cmsis_armcc.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/cmsis_armclang.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/cmsis_armclang.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/cmsis_compiler.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/cmsis_compiler.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/cmsis_gcc.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/cmsis_gcc.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/cmsis_iccarm.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/cmsis_iccarm.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/cmsis_version.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/cmsis_version.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/core_armv8mbl.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/core_armv8mbl.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/core_armv8mml.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/core_armv8mml.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/core_cm0.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/core_cm0.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/core_cm0plus.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/core_cm0plus.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/core_cm1.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/core_cm1.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/core_cm23.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/core_cm23.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/core_cm3.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/core_cm3.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/core_cm33.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/core_cm33.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/core_cm4.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/core_cm4.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/core_cm7.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/core_cm7.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/core_sc000.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/core_sc000.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/core_sc300.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/core_sc300.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/mpu_armv7.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/mpu_armv7.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/mpu_armv8.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/mpu_armv8.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/tz_context.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/CMSIS/Include/tz_context.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_can.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_can.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma_ex.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma_ex.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_exti.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_exti.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_can.c">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_can.c">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/STM32F103TBUX_FLASH.ld">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/STM32F103TBUX_FLASH.ld">
 			<Option target="code.elf"/>
 		</Unit>
-		<Unit filename="D:/Will/Documents/GitHub/LV-BMS/code/CMakeLists.txt">
+		<Unit filename="C:/Users/Juppy/Documents/GitHub/LV-BMS/code/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

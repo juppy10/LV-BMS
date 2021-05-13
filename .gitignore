@@ -1,5 +1,9 @@
 hardware/LV BMS/History/*
 
+code/cmake-build-debug/
+
+code/.idea/
+
 # Prerequisites
 *.d
 

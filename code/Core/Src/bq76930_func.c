@@ -11,6 +11,7 @@ struct LVBat{
     double packMaxEnergy_mJ;
     int SOC;
     int SOH;
+    int cellVoltage[4];
 } LVBatLiPo;
 
 long setShortCircuitProtection(long current_mA){
