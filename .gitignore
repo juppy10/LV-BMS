@@ -1,8 +1,7 @@
 hardware/LV BMS/History/*
 
-code/cmake-build-debug/
-
-code/.idea/
+**/code/cmake-build-debug
+.idea/*.xml
 
 # Prerequisites
 *.d
@@ -58,3 +57,5 @@ Mkfile.old
 dkms.conf
 
 /hardware/LV\ BMS/History
+code/cmake-build-debug/CMakeFiles/clion-log.txt
+code/.idea/workspace.xml

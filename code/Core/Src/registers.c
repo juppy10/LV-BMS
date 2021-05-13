@@ -2,7 +2,7 @@
 // Created by bbark on 7/04/2021.
 //
 
-#include "main.h"
+#include "main.c"
 
 void writeRegister(uint8_t address, uint8_t data){
     uint8_t buf[3];        //is it meant to be uint or char??
