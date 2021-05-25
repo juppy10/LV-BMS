@@ -15,6 +15,15 @@
 #define BALANCE_THRES_mV 20 //20mV
 #define NTCBeta 3970    //thermistor beta value
 
+struct LVBat{
+    double voltage_mV;
+    double packEnergy_mJ;
+    double packMaxEnergy_mJ;
+    int SOC;
+    int SOH;
+    int cellVoltage[4];
+} LVBatLiPo;
+
 //battery protection limit settings
 void setTemperatureLimits(int max_degC);
 long setShortCircuitProtection(long current_mA);

@@ -5,15 +5,6 @@
 
 #include "main.h"
 
-struct LVBat{
-    double voltage_mV;
-    double packEnergy_mJ;
-    double packMaxEnergy_mJ;
-    int SOC;
-    int SOH;
-    int cellVoltage[4];
-} LVBatLiPo;
-
 long setShortCircuitProtection(long current_mA){
     //need to check notebook
     uint8_t PROTECT_1;

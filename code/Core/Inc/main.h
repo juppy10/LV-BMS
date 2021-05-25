@@ -38,6 +38,7 @@ extern "C" {
 #include <stdint.h>
 #include <stdlib.h>
 #include <math.h>
+#include <stdbool.h>
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -60,6 +61,12 @@ extern "C" {
 #define SHORTCIRCUIT_THRESHOLD 0x7u
 
 #define NUMBER_OF_CELLS 4
+
+#define MAX_CELL_VOLTAGE 4.23
+#define MIN_CELL_VOLTAGE 0
+#define PACK_OVER_TEMP 100
+
+#define CHECK_BIT(data, n) ( (data) & ( 1 << (n) ) )
 
 /* USER CODE END EM */
 
