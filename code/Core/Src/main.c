@@ -109,10 +109,9 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1){
-      /* USER CODE END WHILE */
-      timer_val = __HAL_TIM_GET_COUNTER(&htim3);    //Gets the timer value
-      /* timer's 2 frequency is (1000)Hz, counts to 2000 then resets */
-      /* USER CODE BEGIN 3 */
+    /* USER CODE END WHILE */
+
+    /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
 }
@@ -320,10 +319,17 @@ static void MX_TIM3_Init(void)
   */
 static void MX_GPIO_Init(void)
 {
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
+
+  /*Configure GPIO pin : ALERT_Pin */
+  GPIO_InitStruct.Pin = ALERT_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(ALERT_GPIO_Port, &GPIO_InitStruct);
 
 }
 
@@ -332,7 +338,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
     // Check which version of the timer triggered this callback and toggle LED
     if (htim == &htim2 ){    //2ms timer
-        
+        HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_15);
     }
     if (htim == &htim3){     //2 second timer
 
