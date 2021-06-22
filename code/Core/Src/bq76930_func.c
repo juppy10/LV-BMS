@@ -83,10 +83,10 @@ int getBatteryVoltagemV(){
 }*/
 
 // TAKES ARRAY OF LENGTH "NUMBER_OF_CELLS" AND UPDATES THE VALUES IN THE ARRAY
-int updateCellVoltages(int *voltages_mV) {
+int updateCellVoltages() {
     // V(cell) = GAIN x ADC(cell) + OFFSET
     for (uint8_t i = 0; i < NUMBER_OF_CELLS; i++) {
-        voltages_mV[i] = getCellVoltage_mV(i + 1) * ADCGAIN_S / 1000 + ADCOFFSET; // CELL ID STARTS AT 1
+        battery->cellVoltage[i] = getCellVoltage_mV(i + 1) * ADCGAIN_S / 1000 + ADCOFFSET; // CELL ID STARTS AT 1
     }
     return 0;
 }
@@ -100,12 +100,11 @@ int getCellVoltage_mV(int idCell) {
 }
 
 int getMinCellVoltage(void){
-    int voltages[4];
     int minCellVoltage_cell=1;
-    updateCellVoltages((int *) &voltages);
+    updateCellVoltages();
 
     for(int i=1; i>NUMBER_OF_CELLS; i++){
-        if(voltages[i]<voltages[i-1]){
+        if(battery->cellVoltage[i] < battery->cellVoltage[i - 1]){
             minCellVoltage_cell=i;
         }
     }
@@ -113,12 +112,11 @@ int getMinCellVoltage(void){
 }
 
 int getMaxCellVoltage(void){
-    int voltages[4];
     int maxCellVoltage_cell=1;
-    updateCellVoltages((int *) &voltages);
+    updateCellVoltages();
 
     for(int i=1; i>NUMBER_OF_CELLS; i++){
-        if(voltages[i]>voltages[i-1]){
+        if(battery->cellVoltage[i] > battery->cellVoltage[i - 1]){
             maxCellVoltage_cell=i;
         }
     }

@@ -33,6 +33,7 @@ extern "C" {
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "bq76930_func.h"
+#include "alert_handler.h"
 #include "registers.h"
 #include "CAN_comms.h"
 #include <stdint.h>
@@ -43,6 +44,18 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
+
+typedef struct LVBat{
+    double voltage_mV;
+    double packEnergy_mJ;
+    double packMaxEnergy_mJ;
+    double packTemp; // DEGREES C
+    int SOC;
+    int SOH;
+    int cellVoltage[4];
+} LVBat_t;
+
+LVBat_t *battery = malloc(sizeof(LVBat_t));
 
 /* USER CODE END ET */
 
@@ -65,6 +78,8 @@ extern "C" {
 #define MAX_CELL_VOLTAGE 4.23
 #define MIN_CELL_VOLTAGE 0
 #define PACK_OVER_TEMP 100
+
+#define CELL_IMBALANCE_THRESHOLD 0.02
 
 #define CHECK_BIT(data, n) ( (data) & ( 1 << (n) ) )
 
