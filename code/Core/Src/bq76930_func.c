@@ -149,3 +149,21 @@ void updateCC(void){
         LVBatLiPo.SOC = (LVBatLiPo.packEnergy_mJ/LVBatLiPo.packMaxEnergy_mJ)*100;
     }
 }
+
+void balance_charge(void)
+{
+    int max_cell = getMaxCellVoltage();
+    int min_cell = getMinCellVoltage();
+
+    while(battery->cellVoltage[max_cell] < 4.2) {
+        while ((max_cell - min_cell) > CELL_IMBALANCE_THRESHOLD &&
+               battery->cellVoltage[max_cell] > 4) {
+            // START CELL BALANCE ON MAX CELL
+            writeRegister(CELLBAL1, (1 << max_cell_voltage));
+            HAL_Delay(wait_duration * 1000);
+
+        }
+        // START CELL BALANCE ON MAX CELL
+        HAL_Delay(wait_duration * 1000);
+    }
+}

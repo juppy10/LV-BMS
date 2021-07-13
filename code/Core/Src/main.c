@@ -337,25 +337,6 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
-void balance_charge(void)
-{
-    int max_cell = getMaxCellVoltage();
-    int min_cell = getMinCellVoltage();
-
-    while(battery->cellVoltage[max_cell] < 4.2) {
-        while ((max_cell - min_cell) > CELL_IMBALANCE_THRESHOLD &&
-               battery->cellVoltage[max_cell] > 4) {
-            // START CELL BALANCE ON MAX CELL
-            writeRegister(CELLBAL1, (1 << max_cell_voltage));
-            HAL_Delay(wait_duration * 1000);
-
-        }
-        // START CELL BALANCE ON MAX CELL
-        HAL_Delay(wait_duration * 1000);
-    }
-}
-
-
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
     // Check which version of the timer triggered this callback and toggle LED
@@ -375,6 +356,26 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
         if (max_cell_voltage > 4) {
             balance_charge();
         }
+
+        // CHECK DIE TEMP STUFF
+        battery->packTemp = getTemperatureDegC(0);
+        if (battery->packTemp > PACK_OVER_TEMP) {
+            alert_handler()
+        }
+
+        uint8_t sys_ctrl = readRegister(SYS_CTRL1);
+        sys_ctrl &= ~(1 << 2); // SET BIT 3 to 0
+        writeRegister(SYS_CTRL1, sys_ctrl);
+
+        battery->dieTemp = getTemperatureDegC(0);
+        if (battery->dieTemp > PACK_OVER_TEMP) {
+            alert_handler()
+        }
+
+        sys_ctrl = readRegister(SYS_CTRL1);
+        sys_ctrl &= (1 << 2); // SET BIT 3 to 1
+        writeRegister(SYS_CTRL1, sys_ctrl);
+
     }
 }
 

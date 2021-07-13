@@ -33,5 +33,7 @@ int  getMinCellVoltage(void);
 int  getMaxCellVoltage(void);
 float getTemperatureDegC(int isThermistor);
 void updateCC(void);
+void balance_charge(void);
+
 
 #endif //CODE_BQ76930_FUNC_H

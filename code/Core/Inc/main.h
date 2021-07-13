@@ -50,6 +50,7 @@ typedef struct LVBat{
     double packEnergy_mJ;
     double packMaxEnergy_mJ;
     double packTemp; // DEGREES C
+    double dieTemp; // DEGREES C
     int SOC;
     int SOH;
     int cellVoltage[4];
@@ -78,6 +79,7 @@ LVBat_t *battery = malloc(sizeof(LVBat_t));
 #define MAX_CELL_VOLTAGE 4.23
 #define MIN_CELL_VOLTAGE 0
 #define PACK_OVER_TEMP 100
+#define DIE_OVER_TEMP 100
 
 #define CELL_IMBALANCE_THRESHOLD 0.02
 
