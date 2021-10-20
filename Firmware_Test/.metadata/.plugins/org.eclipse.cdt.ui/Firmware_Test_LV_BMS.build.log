@@ -1,0 +1,23 @@
+15:35:05 **** Incremental Build of configuration Debug for project Firmware_Test_LV_BMS ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/registers.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/registers.d" -MT"Core/Src/registers.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/registers.o"
+../Core/Src/main.c:60:22: warning: 'SYS_STAT' defined but not used [-Wunused-const-variable=]
+ static const uint8_t SYS_STAT = 0x00;
+                      ^~~~~~~~
+arm-none-eabi-gcc -o "Firmware_Test_LV_BMS.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Juppy\Documents\GitHub\LV-BMS\Firmware_Test\Firmware_Test_LV_BMS\STM32L432KBUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Firmware_Test_LV_BMS.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Core/Src/registers.o: In function `main':
+C:/Users/Juppy/Documents/GitHub/LV-BMS/Firmware_Test/Firmware_Test_LV_BMS/Debug/../Core/Src/main.c:69: multiple definition of `main'
+Core/Src/main.o:C:/Users/Juppy/Documents/GitHub/LV-BMS/Firmware_Test/Firmware_Test_LV_BMS/Debug/../Core/Src/main.c:69: first defined here
+Core/Src/registers.o: In function `SystemClock_Config':
+C:/Users/Juppy/Documents/GitHub/LV-BMS/Firmware_Test/Firmware_Test_LV_BMS/Debug/../Core/Src/main.c:143: multiple definition of `SystemClock_Config'
+Core/Src/main.o:C:/Users/Juppy/Documents/GitHub/LV-BMS/Firmware_Test/Firmware_Test_LV_BMS/Debug/../Core/Src/main.c:143: first defined here
+Core/Src/registers.o: In function `Error_Handler':
+C:/Users/Juppy/Documents/GitHub/LV-BMS/Firmware_Test/Firmware_Test_LV_BMS/Debug/../Core/Src/main.c:268: multiple definition of `Error_Handler'
+Core/Src/main.o:C:/Users/Juppy/Documents/GitHub/LV-BMS/Firmware_Test/Firmware_Test_LV_BMS/Debug/../Core/Src/main.c:268: first defined here
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:50: Firmware_Test_LV_BMS.elf] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+
+15:35:07 Build Failed. 7 errors, 1 warnings. (took 1s.607ms)
+

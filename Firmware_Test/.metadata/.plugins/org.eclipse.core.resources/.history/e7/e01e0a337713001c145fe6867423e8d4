@@ -1,0 +1,119 @@
+/*
+ * BQ76930.h
+ *
+ *  Created on: 10 Sep 2021
+ *      Author: Juppy
+ */
+
+#ifndef INC_BQ76930_H_
+#define INC_BQ76930_H_
+
+#include "stm32l4xx_hal.h"
+#include "math.h"
+#include <stdlib.h>
+
+#define BQ_I2CADDRESS   0x18 << 1
+#define SYS_STAT        0x00
+#define CELLBAL1        0x01
+#define SYS_CTRL1       0x04
+#define SYS_CTRL2       0x05
+#define PROTECT1        0x06
+#define PROTECT2        0x07
+#define PROTECT3        0x08
+#define OV_TRIP         0x09
+#define UV_TRIP         0x0A
+#define CC_CFG          0x0B
+
+#define VC1_HI_BYTE     0x0C
+#define VC1_LO_BYTE     0x0D
+#define VC2_HI_BYTE     0x0E
+#define VC2_LO_BYTE     0x0F
+#define VC3_HI_BYTE     0x10
+#define VC3_LO_BYTE     0x11
+#define VC4_HI_BYTE     0x12
+#define VC4_LO_BYTE     0x13
+
+// MAPS 1,2,3,4 TO THEIR RESPECTIVE HIGH BYTES REGISTERS
+// LOW BYTE REGISTER IS THE ADDRESS + 1
+#define CELL_ADDRESS(x) (x - 1)*2 + 0x0C
+
+
+#define BAT_HI_BYTE     0x2A
+#define BAT_LO_BYTE     0x2B
+
+#define TS1_HI_BYTE     0x2C
+#define TS1_LO_BYTE     0x2D
+#define CC_HI_BYTE      0x32
+#define CC_LO_BYTE      0x33
+
+#define ADCGAIN1        0x50    //0b0101 0000
+#define ADCGAIN2        0x59    //0b0101 1001
+#define ADCGAIN_S       0x69    //Set this before prog.
+#define ADCOFFSET       0x51    //0b0101 0001
+
+// for bit clear operations of the SYS_STAT register
+#define STAT_CC_READY           (0x80)
+#define STAT_DEVICE_XREADY      (0x20)
+#define STAT_OVRD_ALERT         (0x10)
+#define STAT_UV                 (0x08)
+#define STAT_OV                 (0x04)
+#define STAT_SCD                (0x02)
+#define STAT_OCD                (0x01)
+#define STAT_FLAGS              (0x3F)
+
+// REGISTER OFFSETS
+#define OCD_DELAY 4u
+#define OCD_THRESH 0u
+#define SCD_DELAY 3u
+#define SCD_THRESH 0u
+
+#define shunt_mOhm 4
+#define deltaT_ms 250  //time difference between CC calculations in ms
+#define max_temp_degC 60
+#define OC_C_limit_A 10 //charge limit
+#define OC_D_limit_A 30 //discharge limit - double check
+#define UV_limit_mV 3000
+#define OV_limit_mV 4200
+#define BALANCE_THRES_mV 20 //20mV
+#define NTCBeta 3970    //thermistor beta value
+#define NUMBER_OF_CELLS 4
+
+typedef struct{
+	float voltage_mV;
+	float cell_volt_mV[NUMBER_OF_CELLS];
+	int packEnergy_mJ;
+	int SOC;
+	int packMaxEnergy_mJ;
+	I2C_HandleTypeDef *i2cHandle;
+} LVBatLiPo;
+
+// FUNCTION DECLARATION
+
+void BQ76930_Initialise(LVBatLiPo *dev, I2C_HandleTypeDef *i2cHandle);
+
+//battery protection limit settings
+void setTemperatureLimits(int max_degC);
+void setShortCircuitProtection(long current_mA);
+void setOvercurrentDischargeProtection(long current_mA);
+void setCellUndervoltageProtection(int voltage_mV, int delay_s);
+void setCellOvervoltageProtection(int voltage_mV, int delay_s);
+
+uint8_t getGain();
+
+//battery status
+long  	getBatteryCurrent(LVBatLiPo *dev);
+int  	getBatteryVoltagemV(LVBatLiPo *dev);
+void  	updateCellVoltages(LVBatLiPo *dev);
+int  	getCellVoltage_mV(LVBatLiPo *dev, int idCell);
+int  	getMinCellVoltage(LVBatLiPo *dev);
+int  	getMaxCellVoltage(LVBatLiPo *dev);
+float 	getTemperatureDegC(LVBatLiPo *dev, int isThermistor);
+void 	updateCC(LVBatLiPo *dev);
+void 	balance_charge(LVBatLiPo *dev);
+
+//Communications
+HAL_StatusTypeDef BQ76930_ReadRegister(LVBatLiPo *dev, uint8_t reg, uint8_t *data);
+HAL_StatusTypeDef BQ76930_ReadRegisters(LVBatLiPo *dev, uint8_t reg, uint8_t *data, uint8_t length);
+HAL_StatusTypeDef BQ76930_WriteRegister(LVBatLiPo *dev, uint8_t reg, uint8_t *data);
+
+#endif /* INC_BQ76930_H_ */

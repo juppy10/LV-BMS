@@ -1,0 +1,13 @@
+/*
+ * BQ76930_Registers.c
+ *
+ *  Created on: 10 Sep 2021
+ *      Author: Juppy
+ */
+
+#ifndef SRC_BQ76930_REGISTERS_C_
+#define SRC_BQ76930_REGISTERS_C_
+
+
+
+#endif /* SRC_BQ76930_REGISTERS_C_ */

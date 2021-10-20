@@ -1,0 +1,20 @@
+15:18:00 **** Incremental Build of configuration Debug for project Firmware_TestV2 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/BQ76930.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/BQ76930.d" -MT"Core/Src/BQ76930.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/BQ76930.o"
+arm-none-eabi-gcc -o "Firmware_TestV2.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Juppy\Documents\GitHub\LV-BMS\Firmware_Test\Firmware_TestV2\STM32L432KBUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Firmware_TestV2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Firmware_TestV2.elf
+ 
+arm-none-eabi-objdump -h -S  Firmware_TestV2.elf  > "Firmware_TestV2.list"
+arm-none-eabi-objcopy  -O binary  Firmware_TestV2.elf  "Firmware_TestV2.bin"
+arm-none-eabi-size   Firmware_TestV2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  15372	     20	   1724	  17116	   42dc	Firmware_TestV2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Firmware_TestV2.bin
+ 
+Finished building: Firmware_TestV2.list
+ 
+
+15:18:02 Build Finished. 0 errors, 0 warnings. (took 1s.826ms)
+

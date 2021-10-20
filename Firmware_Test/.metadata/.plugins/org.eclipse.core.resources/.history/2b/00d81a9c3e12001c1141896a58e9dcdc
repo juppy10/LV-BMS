@@ -1,0 +1,13 @@
+/*
+ * BQ76930.h
+ *
+ *  Created on: 10 Sep 2021
+ *      Author: Juppy
+ */
+
+#ifndef INC_BQ76930_H_
+#define INC_BQ76930_H_
+
+#include "stm32l4xx_hal.h"
+
+#endif /* INC_BQ76930_H_ */

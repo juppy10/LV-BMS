@@ -1,0 +1,219 @@
+/*
+ * BQ76930.c
+ *
+ *  Created on: 10 Sep 2021
+ *      Author: Juppy
+ */
+
+#include "BQ76930.h"
+
+void BQ76930_Initialise (LVBatLiPo *dev, I2C_HandleTypeDef *i2cHandle) {
+	dev->i2cHandle = i2cHandle;
+
+	setADC(dev);	//set ADC offset and gain
+	setCellUndervoltageProtection(dev);	//set the UCV limit
+
+	//Update device structure with current cell parameters
+	updateBatteryVoltagemV(dev);
+	updateCellVoltages(dev);
+
+	setSys_Resister(dev);	//update the system status
+	HAL_Delay(1000);
+}
+
+/*long setShortCircuitProtection(long current_mA){
+    //need to check notebook
+    uint8_t PROTECT_1;
+    PROTECT_1 = (uint8_t) readRegister(PROTECT1);
+    PROTECT_1 |= (SHORTCIRCUIT_THRESHOLD << SCD_THRESH);
+    PROTECT_1 |= (SHORTCIRCUIT_DELAY << SCD_DELAY);
+    writeRegister(PROTECT1, PROTECT_1);
+}
+
+long setOvercurrentDischargeProtection(long current_mA){
+    //need to check notebook
+    uint8_t PROTECT_2;
+    PROTECT_2 = (uint8_t) readRegister(PROTECT2);
+    PROTECT_2 |= (OVERCURRENT_THRESHOLD << OCD_THRESH);
+    PROTECT_2 |= (OVERCURRENT_DELAY << OCD_DELAY);
+    writeRegister(PROTECT2, PROTECT_2);
+}*/
+
+void setSys_Resister(LVBatLiPo *dev){
+	uint8_t RegValue;
+	BQ76930_ReadRegister(dev, 0x00, RegValue);
+
+}
+
+void setCellUndervoltageProtection(LVBatLiPo *dev) {
+    uint8_t UV_Reg_Val, protecc3Reg, delay_s_code, protecc3New;
+
+    UV_Reg_Val = (((UV_limit_mV - (int8_t) ADC_OFFSET_VAL) * 1000/(ADCGAIN_VAL_uV+365)) >> 4) & 0x00FF;
+    UV_Reg_Val += 1;		//round up
+
+    BQ76930_WriteRegister(dev, UV_TRIP, &UV_Reg_Val);
+
+    /*protecc3Reg = readRegister(PROTECT3) & 0x3F;    //preserve first 6 LSB, set UV bits to 0
+
+    if(delay_s > 16){
+        delay_s = 16;
+    }//if the delay is greater than 16, change it to 16
+    delay_s_code = delay_s / 4;     //quotient with 4
+    delay_s_code = (delay_s_code << 6);     //left shift by 6 (to make the 2LSB bits 6 and 7)
+    protecc3New = delay_s_code | protecc3Reg;   //or with existing register
+
+    writeRegister(PROTECT3,protecc3New);    //write to register*/
+}
+
+/*
+void setCellOvervoltageProtection(int voltage_mV, int delay_s){
+    uint8_t uv_trip;
+    uint8_t protecc3Reg, delay_s_code, protecc3New;
+
+    uv_trip = (((voltage_mV - (int8_t) ADCOFFSET) * 1000/ADCGAIN_S) >> 4) & 0x00FF; //need to check
+    uv_trip += 1;
+
+    writeRegister(UV_TRIP, uv_trip);
+
+    protecc3Reg = readRegister(PROTECT3) & 0xCF;    //preserve bits 4 and 5, set OV bits to 0
+
+    if(delay_s > 16){
+        delay_s = 16;
+    }//if the delay is greater than 16, change it to 16
+    delay_s_code = delay_s / 4;     //quotient with 4
+    delay_s_code = (delay_s_code << 4);     //left shift by 6 (to make the 2LSB bits 7 and 8)
+    protecc3New = delay_s_code | protecc3Reg;   //or with existing register
+
+    writeRegister(PROTECT3,protecc3New);    //write to register
+}
+*/
+
+void setADC(LVBatLiPo *dev){
+	uint8_t reg_values[2];
+	BQ76930_ReadRegister(dev, ADCGAIN1, &reg_values[0]);	//read current ADC register values (some reserved bits)
+	BQ76930_ReadRegister(dev, ADCGAIN2, &reg_values[1]);
+
+	reg_values[0] = ((ADCGAIN_VAL_uV >> 1) & 0x0C) | reg_values[0];	//shift and add desired ADC gain value (pg 39 datasheet)
+	reg_values[1] = ((ADCGAIN_VAL_uV << 5) & 0xE0) | reg_values[1];	//preverse reserved bits
+
+	BQ76930_WriteRegister(dev, ADCGAIN1, &reg_values[0]);
+	BQ76930_WriteRegister(dev, ADCGAIN2, &reg_values[1]);
+}
+
+void updateBatteryVoltagemV(LVBatLiPo *dev){
+    uint16_t BAT_Volt;
+    uint8_t rawBatVolt[2];
+    BQ76930_ReadRegisters(dev, BAT_HI_BYTE, rawBatVolt,2);
+    BAT_Volt = (((rawBatVolt[0] & 0x3F)<<8)|rawBatVolt[1]);
+    dev -> voltage_mV = 4*(ADCGAIN_VAL_uV+365)*BAT_Volt*pow(10,-3)+(NUMBER_OF_CELLS*ADC_OFFSET_VAL);  //update struct
+}
+
+//long  getBatteryCurrent(void){}   //might not need it
+/*uint8_t getGain() {
+    uint8_t ADCGAIN_1, ADCGAIN_2, ADCGAIN_S;
+    ADCGAIN_1 = readRegister(ADCGAIN1); //Read adcgain registers
+    ADCGAIN_2 = readRegister(ADCGAIN2);
+    ADCGAIN_S = ((ADCGAIN_1 << 1u)|(ADCGAIN_2 >> 5u)) & 0x1F; //sets bits 7,6,5 -> 0 preserves all other bits
+    return ADCGAIN_S;
+
+}*/
+
+// TAKES ARRAY OF LENGTH "NUMBER_OF_CELLS" AND UPDATES THE VALUES IN THE ARRAY
+void updateCellVoltages(LVBatLiPo *dev) {
+    // V(cell) = GAIN x ADC(cell) + OFFSET
+    for (uint8_t i = 0; i < NUMBER_OF_CELLS; i++) {
+    	updateCellVoltage_mV(dev, i+1); // CELL ID STARTS AT 1
+    }
+}
+
+void updateCellVoltage_mV(LVBatLiPo *dev, int idCell) {
+    uint8_t cellVolt[2];
+    int actual_Cell=idCell;
+    if (idCell == 4) actual_Cell=5;
+    BQ76930_ReadRegisters(dev, CELL_ADDRESS(actual_Cell), &cellVolt[0], 2);
+    uint16_t rawVolt = (cellVolt[0] & 0b00111111u) << 8 | cellVolt[1];
+    dev -> cell_volt_mV[idCell-1] = rawVolt*(ADCGAIN_VAL_uV+365)*pow(10,-3) + ADCOFFSET;	//pg 21 & 40 datasheet
+}
+
+int getMinCellVoltage(LVBatLiPo *dev){
+    int minCellVoltage_cell=1;
+    updateCellVoltages(dev);
+
+    for(int i=1; i>NUMBER_OF_CELLS; i++){
+        if(dev->cell_volt_mV[i] < dev->cell_volt_mV[i-1]){
+            minCellVoltage_cell=i;
+        }
+    }
+    return minCellVoltage_cell;
+}
+
+int getMaxCellVoltage(LVBatLiPo *dev){
+    int maxCellVoltage_cell=1;
+    updateCellVoltages(dev);
+
+    for(int i=1; i>NUMBER_OF_CELLS; i++){
+        if(dev->cell_volt_mV[i] > dev->cell_volt_mV[i-1]){
+            maxCellVoltage_cell=i;
+        }
+    }
+    return maxCellVoltage_cell;
+}
+
+/*float getTemperatureDegC(int isThermistor){
+    int Rts, Temp , ADCTemp = readRegister_2(TS1_HI_BYTE);
+    ADCTemp *= 382/1000000;
+
+    if(isThermistor){
+        Rts = (10000*ADCTemp)/(3.3-ADCTemp);
+        Temp = NTCBeta/log(Rts/(10000*pow(M_E,-NTCBeta/25))); //convert resistance to temp using formula for beta - NEED TO CHECK
+    }else{
+        Temp = 25-((ADCTemp-1.2)/0.0042);       //if measuring the die temp, this is the formula for the temperature
+    }
+    return Temp;
+}*/
+
+//Re-write CC algorithm
+/*void updateCC(LVBatLiPo *dev){
+    //assume that the CC_Ready bit has been detected high
+    int CCmA, EnergyCCmJ, currBatVoltagemV = getBatteryVoltagemV(dev);   //battery voltage
+    uint8_t currCCReg[2];
+    BQ76930_ReadRegisters(dev, CC_HI_BYTE, &currCCReg, 2);   //current
+    CCmA=(((currCCReg[0] & 0x0F)<<8)|currCCReg[1])*8.44/shunt_mOhm;    //value in mA (pg. 23 from datasheet)
+    EnergyCCmJ=CCmA*currBatVoltagemV/1000*deltaT_ms/1000;  //energy since last CC reading       CHECK THIS AGAIN
+    dev->packEnergy_mJ += EnergyCCmJ;
+    dev->SOC = (LVBatLiPo.packEnergy_mJ/LVBatLiPo.packMaxEnergy_mJ)*100;
+    }
+}*/
+
+/*void balance_charge(void)
+{
+    int max_cell = getMaxCellVoltage();
+    int min_cell = getMinCellVoltage();
+
+    while(LVBatLiPo.cell_volt_mV[max_cell] < 4.2) {
+        while ((max_cell - min_cell) > CELL_IMBALANCE_THRESHOLD &&
+               battery->cellVoltage[max_cell] > 4) {
+            // START CELL BALANCE ON MAX CELL
+            writeRegister(CELLBAL1, (1 << max_cell_voltage));
+            HAL_Delay(wait_duration * 1000);
+
+        }
+        // START CELL BALANCE ON MAX CELL
+        HAL_Delay(wait_duration * 1000);
+    }
+}*/
+
+HAL_StatusTypeDef BQ76930_ReadRegister(LVBatLiPo *dev, uint8_t reg, uint8_t *data){
+	return HAL_I2C_Mem_Read(dev -> i2cHandle, BQ_I2CADDRESS, reg, 1, data, 1, HAL_MAX_DELAY);
+}
+
+HAL_StatusTypeDef BQ76930_ReadRegisters(LVBatLiPo *dev, uint8_t reg, uint8_t *data, uint8_t length){
+	return HAL_I2C_Mem_Read(dev -> i2cHandle, BQ_I2CADDRESS, reg, 1, data, length, HAL_MAX_DELAY);
+}
+
+HAL_StatusTypeDef BQ76930_WriteRegister(LVBatLiPo *dev, uint8_t reg, uint8_t *data){
+	return HAL_I2C_Mem_Write(dev -> i2cHandle, BQ_I2CADDRESS, reg, 1, data, 1, HAL_MAX_DELAY);
+}
+
+
+

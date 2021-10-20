@@ -1,0 +1,14 @@
+/*
+ * BQ76930_Registers.h
+ *
+ *  Created on: 10 Sep 2021
+ *      Author: Juppy
+ */
+
+#ifndef INC_BQ76930_REGISTERS_H_
+#define INC_BQ76930_REGISTERS_H_
+
+
+
+
+#endif /* INC_BQ76930_REGISTERS_H_ */
